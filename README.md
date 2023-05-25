@@ -1,2 +1,3 @@
-# ToyStore_Group24_WS
- Web Security Project
+# ToyStore_Group8
+
+## Final project of Web Programming
