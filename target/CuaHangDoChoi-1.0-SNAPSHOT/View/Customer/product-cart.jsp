@@ -83,6 +83,8 @@
                                 <div class="cart-grid row">
                                     <div class="col-md-9 col-xs-12 check-info">
                                         <h1 class="title-page">Giỏ hàng</h1>
+                                        <!-- Display error of empty input -->
+                                        <div class="alert-danger">${error}</div>
                                         <div class="cart-container">
                                             <div class="cart-overview js-cart">
                                                 <ul class="cart-items">
@@ -92,6 +94,7 @@
                                                                 ${message}
                                                                 <br>
                                                             </div>
+
                                                             <c:forEach items = "${cartitemlist}" var = "ci">
                                                                 <!--  product left content: image-->
                                                                 <div class="product-line-grid-left col-md-2">
@@ -112,18 +115,22 @@
                                                                             <fmt:formatNumber value = "${ci.product.price}" type = "currency"/>
                                                                         </span>
                                                                     </div>
+
                                                                 </div>
                                                                 <div class="product-line-grid-right text-center product-line-actions col-md-4">
                                                                     <div class="row">
                                                                         <div class="col-md-5 qty col">
                                                                             <div class="label">Số lượng: </div>
-                                                                            <form action="${pageContext.request.contextPath}/cartupdatequantity?id=${ci.id}" method="post" class="form-control-submit">
+                                                                            <form action="${pageContext.request.contextPath}/cartupdatequantity?id=${ci.id}" method="post"
+                                                                                  class="form-control-submit">
                                                                                 <div class="quantity col-xs-2" style="width: 100%">
                                                                                     <input type="hidden" name="id" value="${ci.id}" class="input-group form-control">
-                                                                                    <input type="number" name="quantity" value="${ci.quantity}" class="input-group form-control checkout-cart">
+                                                                                    <input type="number" id="quantity" name="quantity" value="${ci.quantity}" min="1" max="${ci.product.quantity}"
+                                                                                           class="input-group form-control checkout-cart" required>
 
                                                                                     <button type="submit" btn btn-primary style="border: none">
-                                                                                        <a class="cart-button" href="${pageContext.request.contextPath}/cartupdatequantity?id=${ci.id}" data-button-action="update-cart" style="border: none">
+                                                                                        <a class="cart-button" href="${pageContext.request.contextPath}/cartupdatequantity?id=${ci.id}"
+                                                                                           data-button-action="update-cart" style="border: none">
                                                                                             <i class="fa fa-refresh" style="border: none" aria-hidden="true"></i>
                                                                                         </a>
                                                                                     </button>
@@ -152,7 +159,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <a href="${pageContext.request.contextPath}/placeorder"" class="continue btn btn-primary pull-xs-right">
+                                        <a href="${pageContext.request.contextPath}/placeorder" class="continue btn btn-primary pull-xs-right">
                                             Thanh toán
                                         </a>
                                     </div>
@@ -229,6 +236,37 @@
                 <i class="fa fa-long-arrow-up"></i>
             </a>
         </div>
+
+        <style>
+            .error-message {
+                color: red;
+                display: none;
+            }
+            input:invalid[value=""] + .error-message {
+                display: block;
+            }
+        </style>
+
+        <script>
+            function validateForm(event) {
+                var quantity = document.getElementById("quantity");
+
+                if (quantity.value === "") {
+                    quantity.setCustomValidity("Please enter a number.");
+                    event.preventDefault(); // Prevent form submission
+                }
+            }
+
+            function checkValidity() {
+                var quantity = document.getElementById("quantity");
+
+                if (quantity.value === "") {
+                    quantity.setCustomValidity("Please enter a number.");
+                } else {
+                    quantity.setCustomValidity("");
+                }
+            }
+        </script>
 
         <!-- Vendor JS -->
         <script src="<c:url value="/View/Customer/libs/jquery/jquery.min.js"/>"></script>

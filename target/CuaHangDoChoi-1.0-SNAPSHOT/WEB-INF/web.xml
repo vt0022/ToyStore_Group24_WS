@@ -4,10 +4,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee          
                     http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
         <location>/View/Customer/404-error.jsp</location>
     </error-page>
-    
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

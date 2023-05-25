@@ -60,6 +60,7 @@ public class OrderPlaceServlet extends HttpServlet {
                 cart.setAccount(a);
                 dao3.insert(cart);
             }
+
             // Tìm cartitem
             List<CartItem> cartitem = dao4.getCartItemByCart(cart.getId());
 
@@ -69,6 +70,7 @@ public class OrderPlaceServlet extends HttpServlet {
                 total += ci.getQuantity() * ci.getProduct().getPrice();
                 count += 1;
             }
+
             total = Math.round(total);
 
             count = Math.round(count);
@@ -132,6 +134,10 @@ public class OrderPlaceServlet extends HttpServlet {
                 oi.setProduct(ci.getProduct());
                 dao2.insert(oi);
                 total += ci.getQuantity() * ci.getProduct().getPrice();
+            }
+
+            if (total <=0) {
+                response.sendRedirect(request.getContextPath() + "/View/Customer/404-error.jsp");
             }
 
             order.setTotal(total);
