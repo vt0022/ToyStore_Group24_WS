@@ -1,9 +1,14 @@
 package com.nhom8.controller.customer;
 
 import com.nhom8.dao.OrderItemDAOImpl;
+import com.nhom8.entity.Account;
+import com.nhom8.entity.MyOrder;
 import com.nhom8.entity.OrderItem;
+
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
+import javax.persistence.criteria.Order;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,35 +19,42 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "OrderDetailCustomerServlet", urlPatterns = {"/orderdetail"})
 public class OrderDetailCustomerServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
 
-    OrderItemDAOImpl dao = new OrderItemDAOImpl();
+   OrderItemDAOImpl dao = new OrderItemDAOImpl();
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
-    }
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+      doPost(request, response);
+   }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
 
-        response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html;charset=UTF-8");
 
-        int orderID = Integer.parseInt(request.getParameter("id"));
-        
-        HttpSession session = request.getSession();
-        if (session != null && session.getAttribute("account") != null) {
+      int orderID = Integer.parseInt(request.getParameter("id"));
 
-            List<OrderItem> orderItem = dao.getOrderItemByOrder(orderID);
+      HttpSession session = request.getSession();
+      Account account = (Account) session.getAttribute("account");
+      if (session != null && account != null) {
 
-            // B2: Đẩy dữ liệu cho JSP
-            request.setAttribute("orderitem", orderItem);
+         List<Integer> id = account.getOrder().stream().
+                 map(MyOrder::getId)
+                 .collect(Collectors.toList());
 
-            request.getRequestDispatcher("/View/Customer/order-detail.jsp").forward(request, response);
-        } else {
+         if (id.contains(orderID)) {
             response.sendRedirect(request.getContextPath() + "/View/Customer/login.jsp");
-        }
-    }
+         } else {
+            List<OrderItem> orderItems = dao.getOrderItemByOrder(orderID);
+
+            request.setAttribute("orderitem", orderItems);
+            request.getRequestDispatcher("/View/Customer/order-detail.jsp").forward(request, response);
+         }
+      } else {
+         response.sendRedirect(request.getContextPath() + "/View/Customer/login.jsp");
+      }
+   }
 }

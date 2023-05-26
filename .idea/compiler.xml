@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="CuaHangDoChoi" options="-endorseddirs D:\Nam3\Ky2\BaoMatWeb\Project\ToyStore_Group8\target/endorsed" />
+      <module name="CuaHangDoChoi" options="-endorseddirs D:\Nam3\Ky2\BaoMatWeb\Project\ToyStore_Group8_WS\target/endorsed" />
     </option>
   </component>
 </project>
