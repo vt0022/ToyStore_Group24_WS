@@ -1,5 +1,6 @@
 package com.nhom8.controller.customer;
 
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import com.nhom8.dao.AccountDAOImpl;
 import com.nhom8.entity.Account;
 import java.io.IOException;
@@ -47,6 +48,7 @@ public class RegisterServlet extends HttpServlet {
                 request.getRequestDispatcher("/View/Customer/user-login.jsp").forward(request, response);
 
             } catch (Exception e) {
+                response.sendRedirect(request.getContextPath() + "/View/Customer/user-login.jsp");
             }
         }
     }

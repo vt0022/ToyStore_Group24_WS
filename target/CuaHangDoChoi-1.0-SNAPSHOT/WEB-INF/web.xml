@@ -9,9 +9,11 @@
 
     <session-config>
         <session-timeout>30</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
     </session-config>
     
     <welcome-file-list>
         <welcome-file>/View/Customer/index.jsp</welcome-file>
     </welcome-file-list>
+
 </web-app>

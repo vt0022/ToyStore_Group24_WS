@@ -45,7 +45,7 @@
                 <div id="content-wrapper" class="full-width">
                     <div id="main">
                         <div class="container">
-                            <h1 class="text-center title-page center" style="font-size: 50px; display: flex;flex-direction: column;justify-content: center;text-align: center;">ADMINISTARTOR</h1>
+                            <h1 class="text-center title-page center" style="font-size: 50px; display: flex;flex-direction: column;justify-content: center;text-align: center;">ADMINISTRATOR</h1>
                             <br>
                             <br> 
                             <br>   
