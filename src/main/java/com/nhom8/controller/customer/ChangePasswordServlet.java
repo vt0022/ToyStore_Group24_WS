@@ -22,7 +22,7 @@ public class ChangePasswordServlet extends HttpServlet {
             throws ServletException, IOException {
         request.getRequestDispatcher("/View/Customer/user-change-password.jsp").forward(request, response);
     }
-
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,6 +42,14 @@ public class ChangePasswordServlet extends HttpServlet {
                 request.getRequestDispatcher("/View/Customer/user-change-password.jsp").forward(request, response);
             } else if (newpassword.equals(oldpassword)) {
                 request.setAttribute("message", "Vui lòng chọn mật khẩu khác mật khẩu cũ!");
+                request.getRequestDispatcher("/View/Customer/user-change-password.jsp").forward(request, response);
+            } else if (!(newpassword.length() >= 8 
+                    && newpassword.matches(".*[A-Z].*") 
+                    && newpassword.matches(".*[a-z].*") 
+                    && newpassword.matches(".*\\d.*") 
+                    && newpassword.matches(".*\\W.*"))) {
+                request.setAttribute("message", "Mật khẩu không đủ mạnh! Mật khẩu mới phải có ít nhất 8 ký tự và "
+                        + "chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và một ký tự đặc biệt.");
                 request.getRequestDispatcher("/View/Customer/user-change-password.jsp").forward(request, response);
             } else if (!repeatednewpassword.equals(newpassword)) {
                 request.setAttribute("message", "Mật khẩu mới không trùng khớp!");

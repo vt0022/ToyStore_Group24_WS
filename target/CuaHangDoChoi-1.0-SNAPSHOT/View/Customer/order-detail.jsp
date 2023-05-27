@@ -117,7 +117,7 @@
                                             </c:forEach>
                                         </tbody>
                                     </table>
-                                    <a href="<c:url value="/myorders"/>" " class="btn btn-success right" style="font-size: 14px; background-color: #403e3e; border-radius: 1.25pc; border-color: #403e3e; margin-bottom: 15px; float: right ">Quay lại</a>
+                                    <a href="<c:url value="/myorders"/>" class="btn btn-success right" style="font-size: 14px; background-color: #403e3e; border-radius: 1.25pc; border-color: #403e3e; margin-bottom: 15px; float: right ">Quay lại</a>
                                 </div>
                             </div>
                         </div>

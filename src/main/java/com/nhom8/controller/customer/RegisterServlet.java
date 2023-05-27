@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
        doPost(request, response);
     }
-
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         
         String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
         AccountDAOImpl dao = new AccountDAOImpl();
 
@@ -34,19 +35,24 @@ public class RegisterServlet extends HttpServlet {
         Account b = new Account();
         if (a != null) {
             request.setAttribute("message", "Tên đăng nhập đã tồn tại!");
-            request.getRequestDispatcher(request.getContextPath() + "/View/Customer/user-register.jsp").forward(request, response);
+            request.getRequestDispatcher("/View/Customer/user-register.jsp").forward(request, response);
         } else {
-            try {
-                BeanUtils.populate(b, request.getParameterMap());
-                b.setType(1);
-                b.setStatus(1);
-                
-                dao.register(b);
+            if (password.length() >= 8 && password.matches(".*[A-Z].*") && password.matches(".*[a-z].*") && password.matches(".*\\d.*") && password.matches(".*\\W.*")) {
+                try {
+                    BeanUtils.populate(b, request.getParameterMap());
+                    b.setType(1);
+                    b.setStatus(1);
+                    
+                    dao.register(b); 
 
-                request.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập!");
-                request.getRequestDispatcher("/View/Customer/user-login.jsp").forward(request, response);
+                    request.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập!");
+                    request.getRequestDispatcher("/View/Customer/user-login.jsp").forward(request, response);
 
-            } catch (Exception e) {
+                } catch (Exception e) {
+                }
+            } else {
+                request.setAttribute("message", "Mật khẩu không đủ mạnh! Mật khẩu phải có ít nhất 8 ký tự và chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và một ký tự đặc biệt.");
+                request.getRequestDispatcher("/View/Customer/user-register.jsp").forward(request, response);
             }
         }
     }

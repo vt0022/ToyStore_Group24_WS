@@ -11,10 +11,10 @@
     <class>com.nhom8.entity.MyOrder</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/ToyStore"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/sczaauvzwe"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="01669871043"/>
+      <property name="javax.persistence.jdbc.password" value="Sang111#######"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="eclipselink.target-server" value="org.eclipse.persistence.transaction.jotm.JotmTransactionController"/>
     </properties>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 @WebServlet(name = "SearchServlet", urlPatterns = {"/search"})
 public class SearchServlet extends HttpServlet {
@@ -57,10 +58,14 @@ public class SearchServlet extends HttpServlet {
         request.setAttribute("categorylist", category);
         request.setAttribute("end", endPage);
         request.setAttribute("page", index);
-        request.setAttribute("txtSearch", txtSearch);
+        
+        // Mã hoá đầu vào của người dùng cho HTML4
+        request.setAttribute("txtSearch", StringEscapeUtils.escapeHtml4(txtSearch));
 
         HttpSession session = request.getSession();
-        session.setAttribute("url", "/search?index=" + index + "&s=" + txtSearch);
+        
+        // Mã hoá đầu vào của người dùng cho URL
+        session.setAttribute("url", "/search?index=" + index + "&s=" + StringEscapeUtils.escapeEcmaScript(txtSearch));
 
         request.getRequestDispatcher("/View/Customer/search-result.jsp").forward(request, response);
     }
