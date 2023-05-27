@@ -1,6 +1,7 @@
 package com.nhom8.controller.customer;
 
 import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
+import com.nhom8.context.VerifyRecaptcha;
 import com.nhom8.dao.AccountDAOImpl;
 import com.nhom8.entity.Account;
 
@@ -31,7 +32,9 @@ public class RegisterServlet extends HttpServlet {
 
       String username = request.getParameter("username");
       String password = request.getParameter("password");
-
+      String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+      System.out.println(gRecaptchaResponse);
+      boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
       AccountDAOImpl dao = new AccountDAOImpl();
 
       Account a = dao.checkExist(username);
@@ -41,18 +44,24 @@ public class RegisterServlet extends HttpServlet {
          request.getRequestDispatcher("/View/Customer/user-register.jsp").forward(request, response);
       } else {
          if (password.length() >= 8 && password.matches(".*[A-Z].*") && password.matches(".*[a-z].*") && password.matches(".*\\d.*") && password.matches(".*\\W.*")) {
-            try {
-               BeanUtils.populate(b, request.getParameterMap());
-               b.setType(1);
-               b.setStatus(1);
+            if (verify){
+               try {
+                  BeanUtils.populate(b, request.getParameterMap());
+                  b.setType(1);
+                  b.setStatus(1);
 
-               dao.register(b);
+                  dao.register(b);
 
-               request.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập!");
-               request.getRequestDispatcher("/View/Customer/user-login.jsp").forward(request, response);
-            } catch (Exception e) {
-               response.sendRedirect(request.getContextPath() + "/View/Customer/user-login.jsp");
+                  request.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập!");
+                  request.getRequestDispatcher("/View/Customer/user-login.jsp").forward(request, response);
+               } catch (Exception e) {
+                  response.sendRedirect(request.getContextPath() + "/View/Customer/user-login.jsp");
+               }
+            }else{
+               request.setAttribute("message", "Chưa xác nhận");
+               request.getRequestDispatcher("/View/Customer/user-register.jsp").forward(request, response);
             }
+
          } else {
             request.setAttribute("message", "Mật khẩu không đủ mạnh! Mật khẩu phải có ít nhất 8 ký tự và chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và một ký tự đặc biệt.");
             request.getRequestDispatcher("/View/Customer/user-register.jsp").forward(request, response);
