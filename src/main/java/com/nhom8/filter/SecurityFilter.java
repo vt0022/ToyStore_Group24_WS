@@ -28,7 +28,7 @@ public class SecurityFilter implements Filter {
     // Cast the response to HttpServletResponse
     HttpServletResponse httpResponse = (HttpServletResponse) response;
     // Add the headers to the response
-    httpResponse.setHeader("Content-Security-Policy", "frame-ancestors 'none'");
+    httpResponse.setHeader("Content-Security-Policy", "frame-ancestors 'none'; img-src 'self'; script-src 'self'");
     httpResponse.setHeader("X-Frame-Options", "DENY");
     httpResponse.setHeader("X-XSS-Protection", "1; mode=block");
     httpResponse.setHeader("X-Content-Type-Options", "nosniff");
