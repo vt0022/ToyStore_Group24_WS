@@ -91,17 +91,20 @@
                                         <input type="hidden" name="back" value="my-account">
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
-                                                <input class="form-control js-child-focus js-visible-password" name="oldpassword" type="password" value="" placeholder="Mật khẩu cũ">
+                                                <input class="form-control js-child-focus js-visible-password" name="oldpassword" type="password"
+                                                       value="" placeholder="Mật khẩu cũ" autocomplete="false">
                                             </div>
                                         </div>
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
-                                                <input class="form-control js-child-focus js-visible-password" name="newpassword" type="password" value="" placeholder="Mật khẩu mới">
+                                                <input class="form-control js-child-focus js-visible-password" name="newpassword" type="password"
+                                                       value="" placeholder="Mật khẩu mới" autocomplete="false">
                                             </div>
                                         </div>
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
-                                                <input class="form-control js-child-focus js-visible-password" name="repeatednewpassword" type="password" value="" placeholder="Nhập lại mật khẩu">
+                                                <input class="form-control js-child-focus js-visible-password" name="repeatednewpassword" type="password"
+                                                       value="" placeholder="Nhập lại mật khẩu" autocomplete="false">
                                             </div>
                                         </div>
                                     </div>
