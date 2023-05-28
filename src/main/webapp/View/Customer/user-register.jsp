@@ -97,7 +97,8 @@
                                                 <div class="form-group">
                                                     <div>
                                                         <div class="input-group js-parent-focus">
-                                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Mật khẩu">
+                                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password"
+                                                                   placeholder="Mật khẩu" autocomplete="false">
                                                         </div>
                                                     </div>
                                                 </div>
