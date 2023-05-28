@@ -28,8 +28,11 @@ public class SecurityFilter implements Filter {
     // Cast the response to HttpServletResponse
     HttpServletResponse httpResponse = (HttpServletResponse) response;
     // Add the headers to the response
-    httpResponse.addHeader("Content-Security-Policy", "frame-ancestors 'none'");
-    httpResponse.addHeader("X-Frame-Options", "DENY");
+    httpResponse.setHeader("Content-Security-Policy", "frame-ancestors 'none'");
+    httpResponse.setHeader("X-Frame-Options", "DENY");
+    httpResponse.setHeader("X-XSS-Protection", "1; mode=block");
+    httpResponse.setHeader("X-Content-Type-Options", "nosniff");
+    httpResponse.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
     // Pass the request and response to the next filter or servlet
     chain.doFilter(request, response);
   }
