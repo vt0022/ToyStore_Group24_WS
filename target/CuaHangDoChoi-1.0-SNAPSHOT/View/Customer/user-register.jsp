@@ -44,6 +44,8 @@
         <!-- Template CSS -->
         <link rel="stylesheet" type="text/css" href="<c:url value="/View/Customer/styles/main.css"/>">
         <link rel="stylesheet" type="text/css" href="<c:url value="/View/Customer/styles/responsive.css"/>">
+
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
 
     <body class="user-register blog">
@@ -121,6 +123,9 @@
                                                     <div>
                                                         <input class="form-control" name="address" type="text" placeholder="Địa chỉ">
                                                     </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="g-recaptcha" data-sitekey="6LfstEQmAAAAAJLi3SJVZ-q_SE_zv1ZqMoxlCeqS"></div>
                                                 </div>
                                             </div>
                                             <div class="clearfix">
