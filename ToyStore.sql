@@ -1,6 +1,6 @@
-CREATE DATABASE SczaaUvzwE;
+CREATE DATABASE ToyStore;
 
-USE SczaaUvzwE;
+USE ToyStore;
 
 CREATE TABLE Category
 (
@@ -317,7 +317,7 @@ CREATE TABLE Account(
 	id INT primary key auto_increment,
     name char(50),
     username char(20) unique,
-	password char(20) ,
+	password char(255) ,
 	email char(50),
 	image char(255),
 	phone char(11),
@@ -327,94 +327,94 @@ CREATE TABLE Account(
     );
     
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Lê Tú", "tule10", "123456", "tule123@gmail.com", "/View/Admin/img/profile/A1.jpg", "0398475637", 0, "221, Phạm Văn Đồng, Hiệp Bình Chánh, TP. Thủ Đức, TP. Hồ Chí Minh", 1);
+VALUES("Lê Tú", "tule10", "8068219e3ae41e2ff0e29612f3f0094f.4adcdbd90d9106c1cf2f6e7b50bcccfa5fe85ab780b7d68bd38ec121176961857e89911d756862d1b8dd52fc5f2b3ed4b920b91cc353362531dc100255f5ff4a", "tule123@gmail.com", "/View/Admin/img/profile/A1.jpg", "0398475637", 0, "221, Phạm Văn Đồng, Hiệp Bình Chánh, TP. Thủ Đức, TP. Hồ Chí Minh", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Hoàng Nguyễn", "hoang12", "123456789", "iamhoang@gmail.com", "/View/Admin/img/profile/A2.jpg", "09845715421", 0, "26 Ung Văn Khiêm, Phường 25, Bình Thạnh, TP. Hồ Chí Minh", 1);
+VALUES("Hoàng Nguyễn", "hoang12", "75fdaa064e46e26ec35ae019be80756c.2a92e3f5b71f4dc122b308744fdb3974005475c7866ededba3c09d3af8b6d593b8dbe725b388aedcb4dcab403bea4ee0b4ad931eaebcca70e618ba96f9d0316c", "iamhoang@gmail.com", "/View/Admin/img/profile/A2.jpg", "09845715421", 0, "26 Ung Văn Khiêm, Phường 25, Bình Thạnh, TP. Hồ Chí Minh", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Vân Trần", "tranthivan", "123456", "thivan24@gmail.com", "/View/Customer/img/profile/A1.jpg", "0398475637", 1, "221, Phạm Văn Đồng, Hiệp Bình Chánh, Thủ Đức", 1);
+VALUES("Vân Trần", "tranthivan", "24e3f6c6edbe3d56d522fbd489166b4e.832ac4f94484a5d30418dd167a939f59a133411ce9d674c7c6ccafb352fa87f55c77aaadc49b8d92ce7ef97dc12ee92ab91196d1441e6735340566eadada14b8", "thivan24@gmail.com", "/View/Customer/img/profile/A1.jpg", "0398475637", 1, "221, Phạm Văn Đồng, Hiệp Bình Chánh, Thủ Đức", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Thuận Nguyễn", "thuan1012", "123456", "vanthuan2004@gmail.com", "/View/Customer/img/profile/A2.jpg", "0372516481", 1, "An Lạc 1, Mỹ Hoà, Phù Mỹ, Bình Định", 1);
+VALUES("Thuận Nguyễn", "thuan1012", "331b2fe142730f696c7ec292c23816bf.8cf7e54665de3979aa26f70c89cdfa3019b81da9c25a0e8a778b755aa1e4daaf254843e44ad0b40cba1dc7d2219a532e9119d5e9caf0d89836f15b09e700b29d", "vanthuan2004@gmail.com", "/View/Customer/img/profile/A2.jpg", "0372516481", 1, "An Lạc 1, Mỹ Hoà, Phù Mỹ, Bình Định", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Nguyễn Sang", "sang1508", "123456", "sang1508@gmail.com", "/View/Customer/img/profile/A3.jpg", "0394512684", 1, "08, đường 10, tổ 5, ấp 4A, Bình Mỹ, Củ Chi, TP. Hồ Chí Minh", 1);
+VALUES("Nguyễn Sang", "sang1508", "7615353946097c7b93ae9981910a84c8.d4ddb80d720250e01bee884a68d32b0ced8eed657c47dadbffabf786f9fe48b2e451d7a7c0bb78669d81c22f460cb0a92002bedc5785e0961f2ba003cf316543", "sang1508@gmail.com", "/View/Customer/img/profile/A3.jpg", "0394512684", 1, "08, đường 10, tổ 5, ấp 4A, Bình Mỹ, Củ Chi, TP. Hồ Chí Minh", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Quan Huy", "huyphan09", "123456", "huyphan0909@gmail.com", "/View/Customer/img/profile/A4.jpg", "03845126412", 1, "31, tổ 1, ấp Mỹ Thuận, Mỹ Phú, Châu Phú, An Giang", 1);
+VALUES("Quan Huy", "huyphan09", "25674cf4086562c60af662e428ce1ba9.e2793bab6780675f38d7bc5298ec6dc0fc6d3e812b29150d7468965e6cd099575b8b9af6ef4e863c51e51e4bc5bcc3fb8eae23c85a99f70de7b41b6e2c2295e4", "huyphan0909@gmail.com", "/View/Customer/img/profile/A4.jpg", "03845126412", 1, "31, tổ 1, ấp Mỹ Thuận, Mỹ Phú, Châu Phú, An Giang", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Nam Giang", "giangnam18", "123456", "nam01234@gmail.com", "/View/Customer/img/profile/A5.jpg", "09875412654", 1, "Tổ 4, Khối 3, Thị trấn Bồng Sơn, H Hoài Nhơn, Bình Định", 1);
+VALUES("Nam Giang", "giangnam18", "42ae80fbf9f4374c2a6380a8ef16b4ff.b24f48ba7b08f285cedb70e9d3ac267bcc2c01d22c80bc9c0e6dc78f916f406342b096fb0682a57c5fbf5180465f985439eaba9c942f2ee290d3ffc080b82a20", "nam01234@gmail.com", "/View/Customer/img/profile/A5.jpg", "09875412654", 1, "Tổ 4, Khối 3, Thị trấn Bồng Sơn, H Hoài Nhơn, Bình Định", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Thanh Dưỡng", "thanhduongcute17", "123456", "thanhduong2710@gmail.com", "/View/Customer/img/profile/A6.jpg", "0845164512", 1, "K3 Khu Phố Long Châu, Thị trấn La Hai, H Đồng Xuân, Phú Yên", 1);
+VALUES("Thanh Dưỡng", "thanhduongcute17", "84a16783732e27ed2c7708072cf7edaa.06d9bc9cf0ebb734136365595d1330b91df41fbb0dd0f1d818040a0072acb4a9a1b9f66cefc8419630c091653c9defedfa52114d9e4829604cda98cbb982aa8b", "thanhduong2710@gmail.com", "/View/Customer/img/profile/A6.jpg", "0845164512", 1, "K3 Khu Phố Long Châu, Thị trấn La Hai, H Đồng Xuân, Phú Yên", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Minh Anh Lê", "minhle89", "123456", "leminh89@gmail.com", "/View/Customer/img/profile/A7.jpg", "0754615421", 1, "Số nhà 208, ấp 1, xã Lộc Thuận, Lộc Ninh, Bình Phước", 1);
+VALUES("Minh Anh Lê", "minhle89", "c0d666a6875613fb58a12c4d844917b5.ee762eb4375535336c41c0308585098585bb0e91cedbd56dd8bbd3213117ebf8cfc1a84d688d3a68db1badc9852f816f17e57b8e978f9ba0b3f7c69631961fd2", "leminh89@gmail.com", "/View/Customer/img/profile/A7.jpg", "0754615421", 1, "Số nhà 208, ấp 1, xã Lộc Thuận, Lộc Ninh, Bình Phước", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Lê Anh Tú", "tule1000", "123456", "tule123@gmail.com", "/View/Customer/img/profile/A8.jpg", "0354897542", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
+VALUES("Lê Anh Tú", "tule1000", "28e10448a73f322c5facf64ae26653c6.ff8224b6d5f6fc86d4c5624b32082b355177f4934b66ebe4b287e2fa0d53085728cfcd573781ab0a70fefc31bec5de287979f187d64763980c89ff6f28194615", "tule123@gmail.com", "/View/Customer/img/profile/A8.jpg", "0354897542", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Tiến Đặng", "tiendang0000", "123456", "danghuutien1111@gmail.com", "/View/Customer/img/profile/A9.jpg", "0354879412", 1, "Xóm 1, Thôn 2, Xã Lộc An, H Bảo Lâm, Lâm Đồng", 1);
+VALUES("Tiến Đặng", "tiendang0000", "28da1fdb75df5381c79832818d914062.30a26f1ec662bf68b55ad2db57c264bb1d347c36e2d415c3b76cb733673da44a142f8c45366b7dceeaeda468945021f52648921e5c977bc49b60472c81214f8d", "danghuutien1111@gmail.com", "/View/Customer/img/profile/A9.jpg", "0354879412", 1, "Xóm 1, Thôn 2, Xã Lộc An, H Bảo Lâm, Lâm Đồng", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Minh Thư", "thu1234", "123456", "minhthu123@gmail.com", "/View/Customer/img/profile/A10.jpg", "0526484512", 1, "184/36, Phạm Văn Đồng, Thống Nhất, TP Pleiku, Gia Lai", 0);
+VALUES("Minh Thư", "thu1234", "8018714d36269904886579220245c273.82d472f6d70834414050b433c11026edf6335845c4cc6336edd790937d52251c0c4149e980153d31b26d0b4506636f19cdc7ff1c9c71676d7f45a9f7e5e8ede5", "minhthu123@gmail.com", "/View/Customer/img/profile/A10.jpg", "0526484512", 1, "184/36, Phạm Văn Đồng, Thống Nhất, TP Pleiku, Gia Lai", 0);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Phan Lê", "phanlelephan", "123456", "phanle0123@gmail.com", "/View/Customer/img/profile/A111.jpg", "0325461579", 1, "252, Phạm Văn Đồng, Hiệp Bình Chánh, TP. Thủ Đức, TP. Hồ Chí Minh", 1);
+VALUES("Phan Lê", "phanlelephan", "d673fa092436cc0d92ba2413b56ce3dc.28ce9f6d7a047c70df5cfe17479aadd744b4608b7ed4a3dd273e46413f895247768e121b5fdf49821de9fc163e7305bb3e9005184eb61beac553128cc5a9f02c", "phanle0123@gmail.com", "/View/Customer/img/profile/A111.jpg", "0325461579", 1, "252, Phạm Văn Đồng, Hiệp Bình Chánh, TP. Thủ Đức, TP. Hồ Chí Minh", 1);
     
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Minh Quang", "quangminh1234", "123456", "minhquang1705@gmail.com", "/View/Customer/img/profile/A12.jpg", "0978451364", 0, "Tổ 4, Khối 3, Thị trấn Bồng Sơn, H Hoài Nhơn, Bình Định", 1);
+VALUES("Minh Quang", "quangminh1234", "35715c23946271c43428ed66efe232ed.59ed8eefbb9996cb8b0bfd249e282de7df8374616346a817a8912739df0eb36561d6a0d49e24938a0e715e6071414cee6b10269991082f1ef9df0e890b474be9", "minhquang1705@gmail.com", "/View/Customer/img/profile/A12.jpg", "0978451364", 0, "Tổ 4, Khối 3, Thị trấn Bồng Sơn, H Hoài Nhơn, Bình Định", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Cẩm Vân", "vancam00", "123456", "camvan1245@gmail.com", "/View/Customer/img/profile/A13.jpg", "01258794512", 0, "6c/7, Ấp 6, Phạm Văn Hai, H Bình Chánh, TP. Hồ Chí Minh", 1);
+VALUES("Cẩm Vân", "vancam00", "178c32b3294d1d9060e39cedfcab1e49.0089680acaaf13badb715db946e1666578db67514eb02e50f1b21d43a46bc4ddb35b4bdd8c3cf975936962f9c6460c474589252a935b5315a42deb7040c64671", "camvan1245@gmail.com", "/View/Customer/img/profile/A13.jpg", "01258794512", 0, "6c/7, Ấp 6, Phạm Văn Hai, H Bình Chánh, TP. Hồ Chí Minh", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Lê Thị Tư", "tuletu", "123456", "thule1786254@gmail.com", "/View/Customer/img/profile/A14.jpg", "0879451654", 1, "Tổ 1, An Thới, Tân An Thạnh, Huyện Bình Tân, Vĩnh Long", 1);
+VALUES("Lê Thị Tư", "tuletu", "50f38f021179d53946ad8984e44d0bea.0abd4cd4c8428a8e6ab8f84b6b84b1b8798552b4a7c2597bd92760954975c926e8cc8f2a0bd6e2656533372cafa576a3393babd28fd3d38a88cf578ed6a0b217", "thule1786254@gmail.com", "/View/Customer/img/profile/A14.jpg", "0879451654", 1, "Tổ 1, An Thới, Tân An Thạnh, Huyện Bình Tân, Vĩnh Long", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Huyền Trần", "huyencool", "123456", "tranthuhuyen142@gmail.com", "/View/Customer/img/profile/A15.jpg", "0988754612", 1, "32/29 Lý Chính Thắng , Tổ 3 , Phường Chi Lăng , Thành Phố Pleiku , Tỉnh Gia Lai", 0);
+VALUES("Huyền Trần", "huyencool", "a394716e86dfec2e3ac00e39faf4d865.177f2a4233d06301eaf4605dd3a91eddbf4f298ecfdcff562df0032f525ddb4778a6c9a7b3a3877652578db400f39d927b6d58228c95ea32bc6016a9d458a0b9", "tranthuhuyen142@gmail.com", "/View/Customer/img/profile/A15.jpg", "0988754612", 1, "32/29 Lý Chính Thắng , Tổ 3 , Phường Chi Lăng , Thành Phố Pleiku , Tỉnh Gia Lai", 0);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Alex Nguyễn", "alex", "123456", "alex56789@gmail.com", "/View/Customer/img/profile/A16.jpg", "0394512684", 1, "157/21, đường 09, khu phố 8, Linh Tây, TP. Thủ Đức, TP. Hồ Chí Minh", 1);
+VALUES("Alex Nguyễn", "alex", "db84e30fad56a60fb0cdd567e486add1.01a8d78a865acef61700914d128d3d94af3a0f9cc1aebb6bfe185854ee523df4ebc7aacadc2cb281edabc1f684dc718591b59ba7ab266496fe66c7995d12ed1a", "alex56789@gmail.com", "/View/Customer/img/profile/A16.jpg", "0394512684", 1, "157/21, đường 09, khu phố 8, Linh Tây, TP. Thủ Đức, TP. Hồ Chí Minh", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Minh Cute", "minhqq", "123456", "minhcuteisme@gmail.com", "/View/Customer/img/profile/A17.jpg", "0359784512", 1, "314, Hồng Lĩnh, Đập Đá, H An Nhơn, Bình Định", 1);
+VALUES("Minh Cute", "minhqq", "2b6d5b9645004dee9a747a9b365e5a97.32c284d8801b6aae4b7f6032a996a3ad6559d621db6402f50734bf5c24bc6f28d0abbe3e1a10e7052497c10eaafd9388d7bec772cff71e9665b359241707b863", "minhcuteisme@gmail.com", "/View/Customer/img/profile/A17.jpg", "0359784512", 1, "314, Hồng Lĩnh, Đập Đá, H An Nhơn, Bình Định", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Như Quỳnh", "quynhnhu101", "123456", "quynhle35642@gmail.com", "/View/Customer/img/profile/A18.jpg", "0887952145", 1, "64, Bến Chương Dương, Phường Phước Lộc, TX LaGi, Bình Thuận", 0);
+VALUES("Như Quỳnh", "quynhnhu101", "a9c037c50f881d8750712d3b8ece8779.e3bd1d7c4eabfa41dca655a9b7edfe238d48686b34802e330a672d2ef8734bcb1c7fee09b6fea92ac33ab9e27ef150f45169ed9d0cb26926a3418462142fcba4", "quynhle35642@gmail.com", "/View/Customer/img/profile/A18.jpg", "0887952145", 1, "64, Bến Chương Dương, Phường Phước Lộc, TX LaGi, Bình Thuận", 0);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Diệu Hiền", "hiendieu", "123456", "dieuhien1010@gmail.com", "/View/Customer/img/profile/A19.jpg", "0398784512", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
+VALUES("Diệu Hiền", "hiendieu", "3c5f2a8fbd605a7fffea436e25e639c1.f05adbb8b12d0933d93732266efb1e7b783094956a8f0846470f951f7d2505bfc69191d02a9c5852bdfc92d05a9c49b8967336225cbe0a08893325ee7e8ea4b6", "dieuhien1010@gmail.com", "/View/Customer/img/profile/A19.jpg", "0398784512", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Trần Tú Anh", "anhtudeptrai", "123456", "tratuanh17256@gmail.com", "/View/Customer/img/profile/A20.jpg", "0375461542", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
+VALUES("Trần Tú Anh", "anhtudeptrai", "9d1e0f158e8f90dd47e151b9657f0218.9675e7c6b87e95ee74cd50532dedccc5ed2adea0348e157ee4fabbaac33ac5d640a8ff395f4aed8b48b360dfbcd08d7eacc5bc9e2ed865d5949df2198135a10d", "tratuanh17256@gmail.com", "/View/Customer/img/profile/A20.jpg", "0375461542", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Phạm Hoàng Nguyên", "nguyenpham", "123456", "nguyen1998@gmail.com", "/View/Customer/img/profile/A21.jpg", "0358794512", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
+VALUES("Phạm Hoàng Nguyên", "nguyenpham", "068ff855395b425f31b71dac42e363ff.519464f83452c9c312f30aadee7a6e859901f06a580743624820f4b8ace42dbbf5c85a508f08417f6013414a88dd1a202f9e2b9cc44b01ea5e46b95166990fd2", "nguyen1998@gmail.com", "/View/Customer/img/profile/A21.jpg", "0358794512", 1, "Tổ 7, Thôn Ninh Thuận, Xã Hàm Chính, H Hàm Thuận Bắc, Bình Thuận", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Văn Tuấn", "vantuan5555", "123456", "tuan1735@gmail.com", "/View/Customer/img/profile/A22.jpg", "0398784512", 1, "Thị trấn La Hai, Huyện Đồng Xuân, Tỉnh Phú Yên, K3 Khu Phố Long Châu, Thị trấn La Hai, H Đồng Xuân, Phú Yên", 1);
+VALUES("Văn Tuấn", "vantuan5555", "3c7e0534938fdc790480adb507692799.4ea678cbf1d2911d63d881393651688375607e63432042e94ba840b8d1ecbe2cf06a6c5b59b9c7b8a18269244afc3f718c8b3c353e5488a4eaf0b9d0d20b6d28", "tuan1735@gmail.com", "/View/Customer/img/profile/A22.jpg", "0398784512", 1, "Thị trấn La Hai, Huyện Đồng Xuân, Tỉnh Phú Yên, K3 Khu Phố Long Châu, Thị trấn La Hai, H Đồng Xuân, Phú Yên", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Sarah Trần", "sarahtran", "123456", "trankieumy142@gmail.com", "/View/Customer/img/profile/A23.jpg", "0398784512", 1, "5/41, Đường 30/4, Phường 2, TP Sóc Trăng, Sóc Trăng", 0);
+VALUES("Sarah Trần", "sarahtran", "aa4f682d6c865d032771ccf8ce02b5b7.1fa832b770ca1654a754cf4a4adb43a06ba99ae5ccf8da1d5bab5805bd93321b83475ad935becce0f9a5f9a271c9f475379122c85443ea7e0bc79a10da9b09c8", "trankieumy142@gmail.com", "/View/Customer/img/profile/A23.jpg", "0398784512", 1, "5/41, Đường 30/4, Phường 2, TP Sóc Trăng, Sóc Trăng", 0);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Trung", "iamtrung", "123456", "trunglephan@gmail.com", "/View/Customer/img/profile/A24.jpg", "0784516254", 1, "Số 801, tổ 5, Ấp Lình Huỳnh, Xã Lình Huỳnh, H Hòn Đất, Kiên Giang", 1);
+VALUES("Trung", "iamtrung", "181def7b716afcc96c0710a8d472bbb0.01e12f78b40be0727d3ed6141b6a4f225bede2a6908f8d08834aeb0e96b8346c7bd56681a263a3591b496ab08780fd69f2424d0a82041bcdc44b2857a8b26500", "trunglephan@gmail.com", "/View/Customer/img/profile/A24.jpg", "0784516254", 1, "Số 801, tổ 5, Ấp Lình Huỳnh, Xã Lình Huỳnh, H Hòn Đất, Kiên Giang", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Tuấn Trần", "tuan18", "123456", "tuantran1998@gmail.com", "/View/Customer/img/profile/A25.jpg", "0897584512", 1, "6c/7, Ấp 6, Phạm Văn Hai, H Bình Chánh, TP. Hồ Chí Minh", 1);
+VALUES("Tuấn Trần", "tuan18", "715e152086d6ee382de97f2ea6cf1674.44ed03a7ea18c986a5e6df142b7cc07aa0d5d38ce3a6276da3b868e4fd349337d8c7142208544069acdedd7100f74a362446d5297f1028ea2436f24059f068e4", "tuantran1998@gmail.com", "/View/Customer/img/profile/A25.jpg", "0897584512", 1, "6c/7, Ấp 6, Phạm Văn Hai, H Bình Chánh, TP. Hồ Chí Minh", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Edward", "edwardhi", "123456", "edward1@gmail.com", "/View/Customer/img/profile/A26.jpg", "0987845125", 1, "5/41, Đường 30/4, Phường 2, TP Sóc Trăng, Sóc Trăng", 1);
+VALUES("Edward", "edwardhi", "e32ec198e5e4b1656146bb1c43d66274.c81502dce014fd8bde7ee355794666e5c2ae7735f8b57293c347ec07e3e58ba5720d3e19e053fa206324c7f6672d672865864340cb1ca36b664afadba78a4c94", "edward1@gmail.com", "/View/Customer/img/profile/A26.jpg", "0987845125", 1, "5/41, Đường 30/4, Phường 2, TP Sóc Trăng, Sóc Trăng", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Kiều Giáp", "giapkieu1703", "123456", "giapkieu1703@gmail.com", "/View/Customer/img/profile/A27.jpg", "0897845125", 1, "Tổ 8, Ấp 1, Xã Xuân Tây, H Cẩm Mỹ, Đồng Nai", 1);
+VALUES("Kiều Giáp", "giapkieu1703", "7af22006a7c240462e3e4a3fbe571ab3.e5016b5deed1a23250869c9f82f85e1881be76af9a5b83b4b5ed8389756990aba05d54682f14db9c9ece19ea50fde141b3e0c8957b987be970ece6c9e1107f46", "giapkieu1703@gmail.com", "/View/Customer/img/profile/A27.jpg", "0897845125", 1, "Tổ 8, Ấp 1, Xã Xuân Tây, H Cẩm Mỹ, Đồng Nai", 1);
 
 INSERT INTO Account(name, username, password, email, image, phone, type, address, status) 
-VALUES("Nga Nguyễn", "ngalyly", "123456", "ngalyly1010@gmail.com", "/View/Customer/img/profile/A28.jpg", "0987845142", 1, "64, Bến Chương Dương, Phường Phước Lộc, TX LaGi, Bình Thuận", 1);
+VALUES("Nga Nguyễn", "ngalyly", "416876834c64b83694182aa131f9a226.ff9b93a85882a152f782259b1d894afd17ffd7b62ae3b2000f9933ccd69d3b0cab9bfe7e486b8acdb9429746f6fbb13de1e266861c1c7385c1d64e2ab12c39a4", "ngalyly1010@gmail.com", "/View/Customer/img/profile/A28.jpg", "0987845142", 1, "64, Bến Chương Dương, Phường Phước Lộc, TX LaGi, Bình Thuận", 1);
 
     
 -- Tạo CART 1 và các CARTITEM 

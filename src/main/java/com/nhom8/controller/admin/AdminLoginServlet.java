@@ -3,6 +3,8 @@ package com.nhom8.controller.admin;
 import com.nhom8.dao.AccountDAOImpl;
 import com.nhom8.entity.Account;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -43,7 +45,14 @@ public class AdminLoginServlet extends HttpServlet {
 
         AccountDAOImpl dao = new AccountDAOImpl();
 
-        Account a = dao.adminLogin(username, password);
+        Account a = null;
+        try {
+            a = dao.adminLogin(username, password);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (InvalidKeySpecException e) {
+            throw new RuntimeException(e);
+        }
 
         if (a == null) {
             request.setAttribute("message", "Sai tên đăng nhập hoặc mật khẩu!");

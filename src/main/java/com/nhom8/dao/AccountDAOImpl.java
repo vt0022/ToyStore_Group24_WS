@@ -1,7 +1,11 @@
 package com.nhom8.dao;
 
 import com.nhom8.context.DBUtil;
+import com.nhom8.context.HashUtil;
 import com.nhom8.entity.Account;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -48,43 +52,37 @@ public class AccountDAOImpl implements AccountDAO{
     }
 
     @Override
-    public Account login(String username, String password) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager(); //trả về đối tượng EM
-        // createQuery khi dùng câu lệnh thẳng, createNamedQuery khi dùng câu lệnh đã đặt tên bên entity
-        TypedQuery<Account> q = em.createQuery("SELECT acc FROM Account acc WHERE acc.username = :username AND acc.password = :password AND acc.type = 1 AND acc.status = 1", Account.class); // trả về kết quả dưới dạng đối tượng của class
-        q.setParameter("username", username); // Truyền tham số
-        q.setParameter("password", password);
-
-        List<Account> a = new ArrayList<>();
-        try {
-            a = q.getResultList();
-        } finally {
-            em.close();
-        }
-        if (a.isEmpty()) {
+    public Account login(String username, String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        // Check username and get hashed password
+        Account myAccount = checkExist(username);
+        String myPassword;
+        if (myAccount == null)
             return null;
-        }
-        return a.get(0);
+        else
+            myPassword = myAccount.getPassword();
+
+        // Validate password
+        if (HashUtil.validatePassword(password, myPassword))
+            return myAccount;
+        else
+            return null;
     }
 
     @Override
-    public Account adminLogin(String username, String password) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager(); //trả về đối tượng EM
-        // createQuery khi dùng câu lệnh thẳng, createNamedQuery khi dùng câu lệnh đã đặt tên bên entity
-        TypedQuery<Account> q = em.createQuery("SELECT acc FROM Account acc WHERE acc.username = :username AND acc.password = :password AND acc.type = 0 AND acc.status = 1", Account.class); // trả về kết quả dưới dạng đối tượng của class
-        q.setParameter("username", username); // Truyền tham số
-        q.setParameter("password", password);
-
-        List<Account> a = new ArrayList<>();
-        try {
-            a = q.getResultList();
-        } finally {
-            em.close();
-        }
-        if (a.isEmpty()) {
+    public Account adminLogin(String username, String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        // Check username and get hashed password
+        Account myAccount = checkExist(username);
+        String myPassword;
+        if (myAccount == null)
             return null;
-        }
-        return a.get(0);
+        else
+            myPassword = myAccount.getPassword();
+
+        // Validate password and role
+        if (HashUtil.validatePassword(password, myPassword))
+            if (myAccount.getType() == 0)
+                return myAccount;
+        return null;
     }
 
     @Override
@@ -107,10 +105,12 @@ public class AccountDAOImpl implements AccountDAO{
     }
 
     @Override
-    public void register(Account acc) {
+    public void register(Account acc) throws NoSuchAlgorithmException, InvalidKeySpecException {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
 
+        // Create hashed password
+        acc.setPassword(HashUtil.generatePasswordHash(acc.getPassword()));
         try {
             trans.begin();
             em.persist(acc);
@@ -160,13 +160,8 @@ public class AccountDAOImpl implements AccountDAO{
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
         AccountDAOImpl dao = new AccountDAOImpl();
-        Account a = dao.checkExist("thuan1012");
-        if (a == null) {
-            System.out.println("No");
-        } else {
-            System.out.println(a.getUsername());
-        }
+        System.out.println(dao.login("thuan1012", "thuan1012"));
     }
 }

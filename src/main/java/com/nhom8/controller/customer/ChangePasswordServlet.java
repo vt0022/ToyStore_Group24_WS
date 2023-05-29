@@ -1,8 +1,11 @@
 package com.nhom8.controller.customer;
 
+import com.nhom8.context.HashUtil;
 import com.nhom8.dao.AccountDAOImpl;
 import com.nhom8.entity.Account;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +58,14 @@ public class ChangePasswordServlet extends HttpServlet {
                 request.setAttribute("message", "Mật khẩu mới không trùng khớp!");
                 request.getRequestDispatcher("/View/Customer/user-change-password.jsp").forward(request, response);
             } else {
+                // Create hashed password;
+                try {
+                    newpassword = HashUtil.generatePasswordHash(newpassword);
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                } catch (InvalidKeySpecException e) {
+                    throw new RuntimeException(e);
+                }
                 a.setPassword(newpassword);
                 dao.update(a);
                 session.setAttribute("account", a);
