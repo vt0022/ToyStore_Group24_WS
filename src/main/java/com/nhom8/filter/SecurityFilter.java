@@ -12,10 +12,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-/** 
- *
- * @author nguye
- */
 public class SecurityFilter implements Filter {
 
   @Override
@@ -28,7 +24,8 @@ public class SecurityFilter implements Filter {
     // Cast the response to HttpServletResponse
     HttpServletResponse httpResponse = (HttpServletResponse) response;
     // Add the headers to the response
-    httpResponse.setHeader("Content-Security-Policy", "frame-ancestors 'none'; img-src 'self'; script-src 'self'");
+    httpResponse.setHeader("Content-Security-Policy", "frame-ancestors 'none'; img-src 'self'; script-src 'self' " +
+            "https://www.gstatic.com/recaptcha/releases/SglpK98hSCn2CroR0bKRSJl5/recaptcha__en.js https://www.google.com/recaptcha/api.js");
     httpResponse.setHeader("X-Frame-Options", "DENY");
     httpResponse.setHeader("X-XSS-Protection", "1; mode=block");
     httpResponse.setHeader("X-Content-Type-Options", "nosniff");

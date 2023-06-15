@@ -45,7 +45,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/View/Customer/styles/main.css"/>">
         <link rel="stylesheet" type="text/css" href="<c:url value="/View/Customer/styles/responsive.css"/>">
 
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="<c:url value="https://www.google.com/recaptcha/api.js"/>"></script>
     </head>
 
     <body class="user-register blog">
@@ -100,7 +100,7 @@
                                                     <div>
                                                         <div class="input-group js-parent-focus">
                                                             <input class="form-control js-child-focus js-visible-password" name="password" type="password"
-                                                                   placeholder="Mật khẩu" autocomplete="false">
+                                                                   placeholder="Mật khẩu" autocomplete="off">
                                                         </div>
                                                     </div>
                                                 </div>

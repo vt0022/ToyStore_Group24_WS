@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
                   request.setAttribute("message", "Đăng ký thành công! Vui lòng đăng nhập!");
                   request.getRequestDispatcher("/View/Customer/user-login.jsp").forward(request, response);
                } catch (Exception e) {
-                  response.sendRedirect(request.getContextPath() + "/View/Customer/user-login.jsp");
+                  response.sendRedirect(request.getContextPath() + "/View/Customer/404-error.jsp");
                }
             }else{
                request.setAttribute("message", "Chưa xác nhận");

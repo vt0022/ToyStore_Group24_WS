@@ -95,7 +95,7 @@
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
                                                 <input class="form-control js-child-focus js-visible-password" name="password" type="password"
-                                                       value="${password}" placeholder="Mật khẩu" autocomplete="false">
+                                                       value="${password}" placeholder="Mật khẩu">
                                             </div>
                                         </div>
                                         <div class="no-gutters text-center">

@@ -92,19 +92,19 @@
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
                                                 <input class="form-control js-child-focus js-visible-password" name="oldpassword" type="password"
-                                                       value="" placeholder="Mật khẩu cũ" autocomplete="false">
+                                                       value="" placeholder="Mật khẩu cũ" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
                                                 <input class="form-control js-child-focus js-visible-password" name="newpassword" type="password"
-                                                       value="" placeholder="Mật khẩu mới" autocomplete="false">
+                                                       value="" placeholder="Mật khẩu mới" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group no-gutters">
                                             <div class="input-group js-parent-focus">
                                                 <input class="form-control js-child-focus js-visible-password" name="repeatednewpassword" type="password"
-                                                       value="" placeholder="Nhập lại mật khẩu" autocomplete="false">
+                                                       value="" placeholder="Nhập lại mật khẩu" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>

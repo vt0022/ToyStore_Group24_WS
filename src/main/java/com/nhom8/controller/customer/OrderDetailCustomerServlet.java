@@ -45,8 +45,8 @@ public class OrderDetailCustomerServlet extends HttpServlet {
                  map(MyOrder::getId)
                  .collect(Collectors.toList());
 
-         if (id.contains(orderID)) {
-            response.sendRedirect(request.getContextPath() + "/View/Customer/login.jsp");
+         if (!id.contains(orderID)) {
+            response.sendRedirect(request.getContextPath() + "/View/Customer/user-login.jsp");
          } else {
             List<OrderItem> orderItems = dao.getOrderItemByOrder(orderID);
 
@@ -54,7 +54,7 @@ public class OrderDetailCustomerServlet extends HttpServlet {
             request.getRequestDispatcher("/View/Customer/order-detail.jsp").forward(request, response);
          }
       } else {
-         response.sendRedirect(request.getContextPath() + "/View/Customer/login.jsp");
+         response.sendRedirect(request.getContextPath() + "/View/Customer/user-login.jsp");
       }
    }
 }

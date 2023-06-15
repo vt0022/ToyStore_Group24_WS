@@ -36,7 +36,6 @@ public class CartUpdateQuantityServlet extends HttpServlet {
 
          CartItem ci = dao.getCartItemByID(cartitemid);
 
-         if (quantity >= 1 && quantity <= ci.getProduct().getQuantity()) {
             ci.setId(ci.getId());
             ci.setQuantity(quantity);
             ci.setCart(ci.getCart());

@@ -125,7 +125,8 @@
                                                                                   class="form-control-submit">
                                                                                 <div class="quantity col-xs-2" style="width: 100%">
                                                                                     <input type="hidden" name="id" value="${ci.id}" class="input-group form-control">
-                                                                                    <input type="number" id="quantity" name="quantity" value="${ci.quantity}" min="1" max="${ci.product.quantity}"
+                                                                                    <input type="number" id="quantity" name="quantity" value="${ci.quantity}" min="1"
+                                                                                           max="${ci.product.quantity - ci.quantity}"
                                                                                            class="input-group form-control checkout-cart" required>
 
                                                                                     <button type="submit" btn btn-primary style="border: none">
